@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root{
+    --fg: #000;
+    --bg: #fff;
+}
+
+body, html{
+    margin: 0;
+    width: 100vw;
+}
+
+*{
+    font-family: 'Poppins';
+}
+
+/* navbar */
+
+.nav{
+    position: sticky;
+    top: 0;
+    width: 100vw;
+    box-sizing: border-box;
+    padding: 0 20%;
+    height: 7.5vh;
+    border-bottom: 2px solid var(--fg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--bg);
+    z-index: 100;
+}
+
+.nav .logo{
+    font-size: 2rem;
+    font-weight: 900;
+    font-family: Playwrite CU;
+    cursor: pointer;
+}
+
+.nav .links{
+    width: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav .links .link{
+    /* font-family: Playwrite CU; */
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 1.3rem;
+    color: var(--fg);
+}
+
+/* content */
+
+.content{
+    width: 100vw;
+    padding: 7.5vh 20% 0 20%;
+    box-sizing: border-box;
+}
+
+.feed{
+    width: 100%;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    padding: 1vh;
+    box-sizing: border-box;
+    /* border: 1px solid var(--fg); */
+    /* box-shadow: 10px 10px 50px 1px #aaa; */
+    border-bottom: none;
+}
+
+.block{
+    width: 100%;
+}
+
+.block .title-img{
+    width: 100%;
+    aspect-ratio: 3.5;
+    overflow: hidden;
+    position: relative;
+    border-radius: 2rem 2rem 0 0;
+    margin-bottom: 3vh;
+}
+
+.title-img img{
+    width: 100% !important;
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title-img .gradient{
+    position: absolute;
+    inset: auto auto 0% 0%;
+    width: 100%;
+    height: 30%;
+    background: linear-gradient(to top, var(--bg), transparent);
+}
+
+.block .images{
+    /* display: flex; */
+    width: 100%;
+    margin-top: 3vh;
+    aspect-ratio: 10;
+    /* background-color: red; */
+    border-radius: 0 0 2rem 2rem;
+    overflow: hidden;
+}
+
+.images img{
+    height: 100%;
+    aspect-ratio: 1 !important;
+    overflow: hidden;
+    object-fit: cover;
+}

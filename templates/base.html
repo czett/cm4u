@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cm4u</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+</head>
+<body>
+    {% block nav %}
+        <div class="nav">
+            <div class="logo">cm4u</div>
+            <div class="links">
+                <a href="/" class="link">home</a>
+                <a href="/" class="link">galerie</a>
+                <a href="/" class="link">über mich</a>
+            </div>
+        </div>
+    {% endblock %}
+
+    <div class="content">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
