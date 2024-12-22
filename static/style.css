@@ -11,6 +11,11 @@ body, html{
     width: 100vw;
 }
 
+::selection{
+    background: var(--fg);
+    color: var(--bg);
+}
+
 *{
     font-family: 'Poppins';
 }
@@ -140,6 +145,74 @@ body, html{
     display: none;
 }
 
+.login-form, .post-form{
+    position: absolute;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%);
+    width: 20vw;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    gap: 2vh;
+}
+
+form *{
+    padding: 2vh;
+    box-sizing: border-box;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+form input{
+    border: 2px solid var(--fg);
+}
+
+form textarea{
+    border: 2px solid var(--fg);
+    resize: none;
+    aspect-ratio: 2;
+}
+
+form button{
+    background: var(--fg);
+    color: var(--bg);
+    cursor: pointer;
+}
+
+input[type="file"]{
+    display: none;
+}
+
+label{
+    border: 2px solid var(--fg);
+    padding: 2vh;
+    background-color: var(--bg);
+    color: var(--fg);
+    width: 100%;
+    text-align: center;
+}
+
+.post-btn{
+    position: fixed;
+    inset: auto 2vw 2vw auto;
+    border-radius: 50%;
+    aspect-ratio: 1;
+    width: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--fg);
+    cursor: pointer;
+}
+
+.post-btn span{
+    color: var(--bg);
+    font-size: 1.5vw;
+}
+
 @media (width < 1200px){
     :root{
         --rlpad: 5vw;
@@ -181,6 +254,7 @@ body, html{
         background-color: var(--bg);
         visibility: hidden;
         opacity: 0;
+        font-size: 5vw;
     }
 
     .nav .links{

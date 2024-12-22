@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="login-form">
+    <form action="/login/process" enctype="multipart/form-data" method="post">
+        <input type="text" placeholder="Benutzername" name="username">
+        <input type="password" placeholder="Passwort" name="password">
+        <button type="submit">Einloggen</button>
+    </form>
+</div>
+
+{% endblock %}

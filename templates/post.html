@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="post-form">
+    <form action="/post/process" enctype="multipart/form-data" method="post">
+        <input type="text" placeholder="Projekt Titel" name="title" required>
+        <textarea name="description" placeholder="Beschreibung"></textarea>
+        <input type="file" name="bilder" id="img" accept="image/*" multiple required>
+        <label for="img">Bilder auswählen</label>
+        <button type="submit">Hochladen</button>
+    </form>
+</div>
+
+{% endblock %}
