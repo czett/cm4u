@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cm4u</title>
     <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     {% block nav %}
         <div class="nav">
+            <div class="nopc menu-icon" data-opened="false" onmousedown="toggleMenu(this)">
+                <span class="material-symbols-rounded">widgets</span>
+            </div>
             <div class="logo">cm4u</div>
             <div class="links">
                 <a href="/" class="link">home</a>
@@ -21,5 +25,26 @@
     <div class="content">
         {% block content %}{% endblock %}
     </div>
+
+    <script>
+        function toggleMenu(icon){
+            const links = document.querySelector(".links");
+            const logo = document.querySelector(".logo");
+
+            if (icon.dataset.opened == "false"){
+                links.style.opacity = "1";
+                logo.style.opacity = "1";
+                links.style.visibility = "visible";
+                logo.style.visibility = "visible";
+                icon.dataset.opened = "true";
+            }else{
+                links.style.opacity = "0";
+                logo.style.opacity = "0";
+                links.style.visibility = "hidden";
+                logo.style.visibility = "hidden";
+                icon.dataset.opened = "false";
+            }
+        }
+    </script>
 </body>
 </html>
