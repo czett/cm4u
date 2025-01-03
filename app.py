@@ -12,6 +12,7 @@ def start():
         li = True
 
     posts = funcs.get_posts()
+    return str(posts)
 
     return render_template("index.html", li=li, posts=posts)
 
