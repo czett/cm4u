@@ -100,6 +100,6 @@ def get_posts():
                         "images": [img[0] for img in images]
                     })
 
-        return posts
+        return posts[::-1]
     except Exception as e:
         return f"Database error: {e}"
