@@ -1,18 +1,32 @@
 import psycopg
 import cloudinary
 import cloudinary.uploader
+import os
+from dotenv import load_dotenv
 
-with open("credentials.yml", "r") as creds:
-    d = creds.read().split("|")
-    pw = d[0]
-    cli_api = d[1]
-    cli_secret = d[2]
+try:
+    load_dotenv()
+except:
+    pass # :) great code, right?
+
+# with open("credentials.yml", "r") as creds:
+#     d = creds.read().split("|")
+#     pw = d[0]
+#     cli_api = d[1]
+#     cli_secret = d[2]
+
+db_password = os.getenv("DB_PASSWORD")
+db_host = os.getenv("DB_HOST")
+db_user = os.getenv("DB_USER")
+db_name = os.getenv("DB_NAME")
+cli_api = os.getenv("API_KEY")
+cli_secret = os.getenv("API_SECRET")
 
 db_config = {
-    "dbname": "postgres",
-    "user": "postgres",
-    "password": pw,
-    "host": "db.rmjtxjyqiltlqevhpzbe.supabase.co",
+    "dbname": db_name,
+    "user": db_user,
+    "password": db_password,
+    "host": db_host,
     "port": "5432"
 }
 
