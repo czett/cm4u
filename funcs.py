@@ -15,24 +15,13 @@ except:
 #     cli_api = d[1]
 #     cli_secret = d[2]
 
-db_password = os.getenv("DB_PASSWORD")
-db_host = os.getenv("DB_HOST")
-db_user = os.getenv("DB_USER")
-db_name = os.getenv("DB_NAME")
+db_url = os.getenv("DB_URL")
 cli_api = os.getenv("API_KEY")
 cli_secret = os.getenv("API_SECRET")
 
-db_config = {
-    "dbname": db_name,
-    "user": db_user,
-    "password": db_password,
-    "host": db_host,
-    "port": "5432"
-}
-
 def login_user(username, password):
     try:
-        with psycopg.connect(**db_config) as conn:
+        with psycopg.connect(db_url) as conn:
             with conn.cursor() as cur:
                 query = """
                     SELECT 1
@@ -74,7 +63,7 @@ def upload_image(file):
 
 def save_post_with_images(title, description, image_urls):
     try:
-        with psycopg.connect(**db_config) as conn:
+        with psycopg.connect(db_url) as conn:
             with conn.cursor() as cur:
                 post_query = """
                     INSERT INTO posts (title, description)
@@ -100,7 +89,7 @@ def get_posts():
     posts = []
 
     try:
-        with psycopg.connect(**db_config) as conn:
+        with psycopg.connect(db_url) as conn:
             with conn.cursor() as cur:
                 cur.execute("SELECT id, title, description FROM posts")
                 posts_data = cur.fetchall()
