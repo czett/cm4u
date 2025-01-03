@@ -15,7 +15,7 @@ except:
 #     cli_api = d[1]
 #     cli_secret = d[2]
 
-db_password = os.getenv("DB_PASSWORD") # embarassing
+db_password = os.getenv("DB_PASSWORD")
 db_host = os.getenv("DB_HOST")
 db_user = os.getenv("DB_USER")
 db_port = os.getenv("DB_PORT")
