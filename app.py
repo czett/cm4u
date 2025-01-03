@@ -48,26 +48,21 @@ def post():
 
 @app.route("/post/process", methods=["POST"])
 def pprocess():
-    # Hole die Formulardaten
     title = request.form["title"]
     description = request.form["description"]
-    files = request.files.getlist("bilder")  # Alle hochgeladenen Bilder
+    files = request.files.getlist("bilder")
 
-    # Prüfe, ob Dateien hochgeladen wurden
     if not files or len(files) == 0:
         return "Keine Dateien hochgeladen", 400
 
-    # Liste für die Bild-URLs
     image_urls = []
 
-    # Lade jede Datei zu Cloudinary hoch
     for file in files:
         image_url = funcs.upload_image(file)
         if not image_url:
             return "Bild-Upload fehlgeschlagen", 500
         image_urls.append(image_url)
 
-    # Speichere die Post-Daten in der Datenbank
     db_result = funcs.save_post_with_images(title, description, image_urls)
     if not db_result:
         return "Fehler beim Speichern in der Datenbank", 500
